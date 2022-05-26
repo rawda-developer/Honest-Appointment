@@ -1,25 +1,28 @@
 import React from 'react';
+import { BiCalendarPlus } from 'react-icons/bi';
 import {
   ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
   Grid,
+  Flex,
+  Center,
   theme,
+  Heading,
+  Icon,
+  useColorModeValue,
+  Stack,
+  Spacer,
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Logo } from './Logo';
-
+import Header from './components/Header';
 function App() {
+  const bg = useColorModeValue('red.500', 'red.200');
   return (
     <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-        </Grid>
-      </Box>
+      <Flex p={3}>
+        <Header />
+        <Spacer />
+        <ColorModeSwitcher justify="flex-end" />
+      </Flex>
     </ChakraProvider>
   );
 }
