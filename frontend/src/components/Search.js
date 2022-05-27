@@ -15,7 +15,7 @@ import {
   MenuDivider,
 } from '@chakra-ui/react';
 import { BsCheck } from 'react-icons/bs';
-const DropDown = () => {
+const DropDown = ({ sortBy, setSortBy, order, setOrder }) => {
   return (
     <>
       <Menu closeOnSelect={false}>
@@ -24,8 +24,12 @@ const DropDown = () => {
         </MenuButton>
         <MenuList minWidth="240px">
           <MenuOptionGroup defaultValue="asc" title="Order" type="radio">
-            <MenuItemOption value="asc">Ascending</MenuItemOption>
-            <MenuItemOption value="desc">Descending</MenuItemOption>
+            <MenuItemOption value="asc" onClick={() => setOrder('asc')}>
+              Ascending
+            </MenuItemOption>
+            <MenuItemOption value="desc" onClick={() => setOrder('desc')}>
+              Descending
+            </MenuItemOption>
           </MenuOptionGroup>
           <MenuDivider />
           <MenuOptionGroup
@@ -33,16 +37,28 @@ const DropDown = () => {
             type="radio"
             defaultValue="petOwner"
           >
-            <MenuItemOption value="petOwner">Pet owner</MenuItemOption>
-            <MenuItemOption value="petName">Pet name</MenuItemOption>
-            <MenuItemOption value="date">Date</MenuItemOption>
+            <MenuItemOption
+              value="petOwner"
+              onClick={() => setSortBy('petOwner')}
+            >
+              Pet owner
+            </MenuItemOption>
+            <MenuItemOption
+              value="petName"
+              onClick={() => setSortBy('petName')}
+            >
+              Pet name
+            </MenuItemOption>
+            <MenuItemOption value="date" onClick={() => setSortBy('aptDate')}>
+              Date
+            </MenuItemOption>
           </MenuOptionGroup>
         </MenuList>
       </Menu>
     </>
   );
 };
-const Search = ({ search, setSearch }) => {
+const Search = ({ search, setSearch, sortBy, setSortBy, order, setOrder }) => {
   return (
     <>
       <InputGroup>
@@ -56,7 +72,12 @@ const Search = ({ search, setSearch }) => {
           value={search}
           onChange={event => setSearch(event.target.value)}
         />
-        <DropDown />
+        <DropDown
+          sortBy={sortBy}
+          setSortBy={setSortBy}
+          order={order}
+          setOrder={setOrder}
+        />
       </InputGroup>
     </>
   );
