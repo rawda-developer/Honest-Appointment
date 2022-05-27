@@ -42,7 +42,7 @@ const DropDown = () => {
     </>
   );
 };
-const Search = () => {
+const Search = ({ search, setSearch }) => {
   return (
     <>
       <InputGroup>
@@ -50,7 +50,12 @@ const Search = () => {
           children={<BiSearch color="gray.300" />}
           pointerEvents="none"
         />
-        <Input type="text" placeholder="Search" />
+        <Input
+          type="text"
+          placeholder="Search"
+          value={search}
+          onChange={event => setSearch(event.target.value)}
+        />
         <DropDown />
       </InputGroup>
     </>

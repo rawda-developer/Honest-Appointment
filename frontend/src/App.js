@@ -46,7 +46,7 @@ function App() {
         <ColorModeSwitcher justify="flex-end" />
       </Flex>
       <AddAppointment />
-      <Search />
+      <Search search={search} setSearch={setSearch} />
       {filteredAppointments.map(appointment => (
         <div key={appointment.id}>
           <AppointmentInfo
