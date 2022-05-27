@@ -7,7 +7,7 @@ Honest Appointment is a pet appointment Website that facilitates the management 
 ![alt text](./imgs/honest-appointment-home.png)
 ![alt text](./imgs/add-appointment.png)
 ![alt text](./imgs/Search.png)
-![alt text](./imgs/Search.png)
+![alt text](./imgs/sort.png)
 
 ## Tech Stack (Dependencies)
 
